@@ -1,6 +1,6 @@
 # SubCritic
 
-![](https://user-images.githubusercontent.com/4191018/53700850-b42c3500-3e07-11e9-9278-d88c602e334d.png)
+<img width="700px" src="https://user-images.githubusercontent.com/4191018/53700850-b42c3500-3e07-11e9-9278-d88c602e334d.png" />
 
 Tool for evaluating subtitles and getting report for them. If you're subtitle translator or someone who needs to verify subtitles, you can use it.
 
