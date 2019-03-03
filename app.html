@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      if (typeof module === "object") {
+        window.module = module;
+        module = undefined;
+      }
+    </script>
+    <link rel="stylesheet" type="text/css" href="src/css/semantic/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="src/css/main.css" />
+    <script src="src/js/jquery/jquery-3.3.1.min.js"></script>
+    <script src="src/js/semantic/semantic.min.js"></script>
+    <script src="src/js/utility/variables.js"></script>
+    <script src="src/js/utility/core.js"></script>
+    <script src="src/js/utility/subtitle.js"></script>
+    <script src="src/js/main.js"></script>
+    <script>
+      if (window.module) module = window.module;
+    </script>
+    <title>SubCritic</title>
+  </head>
+  <body>
+    <div class="ui vertical inverted visible sidebar labeled icon menu left-sidemenu">
+      <a class="active item" data-section="scan">
+        <i class="search icon"></i>
+        <span data-lang>Scan</span>
+      </a>
+      <a class="item" data-section="dictionaries">
+        <i class="book icon"></i>
+        <span data-lang>Dictionaries</span>
+      </a>
+      <a class="item" data-section="languages">
+        <i class="globe icon"></i>
+        <span data-lang>Languages</span>
+      </a>
+      <a class="item" data-section="faq">
+        <i class="question icon"></i>
+        <span data-lang>FAQ</span>
+      </a>
+      <a class="item" data-section="license">
+        <i class="copyright outline icon"></i>
+        <span data-lang>License</span>
+      </a>
+      <a class="item" data-section="author">
+        <i class="user secret icon"></i>
+        <span data-lang>Author</span>
+      </a>
+    </div>
+    <div class="right-sections">
+      <div class="active section space-between" data-section="scan">
+        <h2 class="ui header full pad-lr pad-tp section-title">
+          <i class="search icon"></i>
+          <div class="content" data-lang>
+            Scan
+          </div>
+        </h2>
+        <div class="full steps">
+          <div class="full step visible">
+            <h2 data-lang>Welcome to SubCritic!</h2>
+            <p data-lang>Just place subtitle here to get detail report.</p>
+            <div class="ui placeholder segment drag-drop-area">
+              <div class="full drag-drop-area-border">
+                <div class="ui icon header">
+                  <i class="file alternate outline icon"></i>
+                  <span data-lang>Drag and drop subtitle here.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="full step">
+            <h2 data-lang>We're reading subtitle...</h2>
+            <p data-lang>Just wait a minute please. You'll continue with the dictionary and style selection.</p>
+            <div class="ui full loading-area">
+              <div class="ui indeterminate active centered inline massive loader"></div>
+            </div>
+          </div>
+          <div class="full step">
+            <h2 class="srt-second-tab-title" data-lang>Choose dictionary</h2>
+            <h2 class="ssa-second-tab-title" data-lang>Choose dictionary and style</h2>
+            <p class="srt-second-tab-description" data-lang>Every word in the dictionary you choose will be ignored for spell checking.</p>
+            <p class="ssa-second-tab-description">
+              <span data-lang>Every word in the dictionary you choose will be ignored for spell checking.</span>
+              <br />
+              <span data-lang>Don't forget only styles you choose will be checked against.</span>
+            </p>
+            <div class="ui segment choose-box">
+              <div class="ui very relaxed grid one column">
+                <div class="column">
+                  <div class="ui relaxed divided list dictionary-list hidden"></div>
+                  <div class="no-dictionary">
+                    <p data-lang>There is no dictionary.</p>
+                    <div class="ui labeled icon button add-dictionary-button">
+                      <i class="plus icon"></i>
+                      <span data-lang>Add</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="column hidden">
+                  <div class="ui relaxed divided list style-list"></div>
+                </div>
+              </div>
+              <div class="ui vertical divider hidden" data-lang>
+                AND
+              </div>
+            </div>
+            <div class="ui basic segment button-box">
+              <div class="ui labeled icon left floated button back-button">
+                <i class="left arrow icon"></i>
+                <span data-lang>Back</span>
+              </div>
+              <div class="ui right labeled icon right floated button continue-button">
+                <i class="right arrow icon"></i>
+                <span data-lang>Continue</span>
+              </div>
+            </div>
+          </div>
+          <div class="full step">
+            <h2 data-lang>Checking ...</h2>
+            <div class="progress-status">
+              <div class="status-box">
+                <p data-lang>Unnecessary Spaces</p>
+                <p data-lang>Overlapping Lines</p>
+                <p data-lang>Unsupported Newlines</p>
+                <p data-lang>Negative Durations</p>
+                <p data-lang>Invalid Tags</p>
+                <p data-lang>Spaced N Tags</p>
+                <p data-lang>Spelling Errors</p>
+                <p data-lang>Characters Per Line</p>
+                <p data-lang>Characters Per Second</p>
+              </div>
+            </div>
+            <div class="ui progress progress-bar">
+              <div class="bar">
+                <div class="progress"></div>
+              </div>
+            </div>
+          </div>
+          <div class="full step">
+            <div class="report-tabs">
+              <div class="ui pointing secondary menu">
+                <a class="item active" data-tab="overall" data-lang>Overall</a>
+                <a class="item" data-tab="technical" data-lang>Technical Errors</a>
+                <a class="item" data-tab="syntax" data-lang>Syntax Errors</a>
+                <a class="item" data-tab="semantic" data-lang>Semantic Errors</a>
+              </div>
+              <div class="ui tab segment active" data-tab="overall">
+                <div class="grade-box">
+                  <h1 class="ui header" data-lang>SubCritic Grade</h1>
+                  <h1 class="ui header"></h1>
+                </div>
+                <div class="ui vertical divider"></div>
+                <div class="summary" data-lang>
+                  So here we are! This is the grade we gave you for subtitle. But remember, this grade does not completely reflect the truth. In fact, subtitle may be better or worse. But it will always be the right approach if you try to correct the mistakes we found. Good luck!
+                </div>
+              </div>
+              <div class="ui tab segment" data-tab="technical">
+                <div class="ui top attached tabular menu">
+                  <a class="item active" data-tab="technical/cps">CPS</a>
+                  <a class="item" data-tab="technical/cpl">CPL</a>
+                  <a class="item" data-tab="technical/ndu">NDU</a>
+                  <a class="item" data-tab="technical/oli">OLI</a>
+                </div>
+                <div class="ui bottom attached tab segment active" data-tab="technical/cps">
+                  <div class="ui basic segment">
+                    <table class="ui selectable celled compact striped table cps-table" style="min-width: 900px;">
+                      <thead>
+                        <tr>
+                          <th class="one wide" data-lang>Row</th>
+                          <th class="one wide" data-lang>Start</th>
+                          <th class="one wide" data-lang>End</th>
+                          <th class="one wide" data-lang>Duration</th>
+                          <th class="nine wide" data-lang>Text</th>
+                          <th class="one wide" data-lang>Word Count</th>
+                          <th class="one wide" data-lang>Character Count</th>
+                          <th class="one wide">CPS</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <div class="ui inverted dimmer">
+                      <div class="content">
+                        <h2 class="ui icon header">
+                          <i class="eye slash outline icon"></i>
+                          <span data-lang>Nothing to show!</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui bottom attached tab segment" data-tab="technical/cpl">
+                  <div class="ui basic segment">
+                    <table class="ui selectable celled compact striped table cpl-table" style="min-width: 800px;">
+                      <thead>
+                        <tr>
+                          <th class="one wide" data-lang>Row</th>
+                          <th class="one wide" data-lang>Start</th>
+                          <th class="one wide" data-lang>End</th>
+                          <th class="eleven wide" data-lang>Text</th>
+                          <th class="one wide" data-lang>Line Count</th>
+                          <th class="one wide">CPL</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <div class="ui inverted dimmer">
+                      <div class="content">
+                        <h2 class="ui icon header">
+                          <i class="eye slash outline icon"></i>
+                          <span data-lang>Nothing to show!</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui bottom attached tab segment" data-tab="technical/ndu">
+                  <div class="ui basic segment">
+                    <table class="ui selectable celled compact striped table ndu-table" style="min-width: 700px;">
+                      <thead>
+                        <tr>
+                          <th class="one wide" data-lang>Row</th>
+                          <th class="one wide" data-lang>Start</th>
+                          <th class="one wide" data-lang>End</th>
+                          <th class="one wide" data-lang>Duration</th>
+                          <th class="twelve wide" data-lang>Text</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <div class="ui inverted dimmer">
+                      <div class="content">
+                        <h2 class="ui icon header">
+                          <i class="eye slash outline icon"></i>
+                          <span data-lang>Nothing to show!</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui bottom attached tab segment" data-tab="technical/oli">
+                  <div class="ui basic segment">
+                    <table class="ui selectable celled compact striped table oli-table" style="min-width: 700px;">
+                      <thead>
+                        <tr>
+                          <th class="one wide" data-lang>Row</th>
+                          <th class="one wide" data-lang>Start</th>
+                          <th class="one wide" data-lang>End</th>
+                          <th class="eleven wide" data-lang>Text</th>
+                          <th class="two wide">OLI</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <div class="ui inverted dimmer">
+                      <div class="content">
+                        <h2 class="ui icon header">
+                          <i class="eye slash outline icon"></i>
+                          <span data-lang>Nothing to show!</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui tab segment" data-tab="syntax">
+                <div class="ui top attached tabular menu">
+                  <a class="item active" data-tab="syntax/ita">ITA</a>
+                  <a class="item" data-tab="syntax/une">UNE</a>
+                </div>
+                <div class="ui bottom attached tab segment active" data-tab="syntax/ita">
+                  <div class="ui basic segment">
+                    <table class="ui selectable celled compact striped table ita-table" style="min-width: 700px;">
+                      <thead>
+                        <tr>
+                          <th class="one wide" data-lang>Row</th>
+                          <th class="one wide" data-lang>Start</th>
+                          <th class="one wide" data-lang>End</th>
+                          <th class="seven wide" data-lang>Text</th>
+                          <th class="six wide">ITA</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <div class="ui inverted dimmer">
+                      <div class="content">
+                        <h2 class="ui icon header">
+                          <i class="eye slash outline icon"></i>
+                          <span data-lang>Nothing to show!</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui bottom attached tab segment" data-tab="syntax/une">
+                  <div class="ui basic segment">
+                    <table class="ui selectable celled compact striped table une-table" style="min-width: 800px;">
+                      <thead>
+                        <tr>
+                          <th class="one wide" data-lang>Row</th>
+                          <th class="one wide" data-lang>Line</th>
+                          <th class="one wide" data-lang>Start</th>
+                          <th class="one wide" data-lang>End</th>
+                          <th class="ten wide" data-lang>Text</th>
+                          <th class="two wide">UNE</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <div class="ui inverted dimmer">
+                      <div class="content">
+                        <h2 class="ui icon header">
+                          <i class="eye slash outline icon"></i>
+                          <span data-lang>Nothing to show!</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui tab segment" data-tab="semantic">
+                <div class="ui top attached tabular menu">
+                  <a class="item active" data-tab="semantic/ser">SER</a>
+                  <a class="item" data-tab="semantic/snt">SNT</a>
+                  <a class="item" data-tab="semantic/usp">USP</a>
+                </div>
+                <div class="ui bottom attached tab segment active" data-tab="semantic/ser">
+                  <div class="ui basic segment">
+                    <table class="ui selectable celled compact striped table ser-table" style="min-width: 800px;">
+                      <thead>
+                        <tr>
+                          <th class="one wide" data-lang>Row</th>
+                          <th class="one wide" data-lang>Line</th>
+                          <th class="one wide" data-lang>Start</th>
+                          <th class="one wide" data-lang>End</th>
+                          <th class="six wide" data-lang>Text</th>
+                          <th class="six wide">SER</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <div class="ui inverted dimmer">
+                      <div class="content">
+                        <h2 class="ui icon header">
+                          <i class="eye slash outline icon"></i>
+                          <span data-lang>Nothing to show!</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui bottom attached tab segment" data-tab="semantic/snt">
+                  <div class="ui basic segment">
+                    <table class="ui selectable celled compact striped table snt-table" style="min-width: 700px;">
+                      <thead>
+                        <tr>
+                          <th class="one wide" data-lang>Row</th>
+                          <th class="one wide" data-lang>Start</th>
+                          <th class="one wide" data-lang>End</th>
+                          <th class="eleven wide" data-lang>Text</th>
+                          <th class="two wide">SNT</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <div class="ui inverted dimmer">
+                      <div class="content">
+                        <h2 class="ui icon header">
+                          <i class="eye slash outline icon"></i>
+                          <span data-lang>Nothing to show!</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui bottom attached tab segment" data-tab="semantic/usp">
+                  <div class="ui basic segment">
+                    <table class="ui selectable celled compact striped table usp-table" style="min-width: 800px;">
+                      <thead>
+                        <tr>
+                          <th class="one wide" data-lang>Row</th>
+                          <th class="one wide" data-lang>Line</th>
+                          <th class="one wide" data-lang>Start</th>
+                          <th class="one wide" data-lang>End</th>
+                          <th class="ten wide" data-lang>Text</th>
+                          <th class="two wide">USP</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <div class="ui inverted dimmer">
+                      <div class="content">
+                        <h2 class="ui icon header">
+                          <i class="eye slash outline icon"></i>
+                          <span data-lang>Nothing to show!</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="button-container">
+              <button class="ui labeled icon button again-report-button">
+                <i class="redo icon"></i>
+                <span data-lang>Take Another Analysis</span>
+              </button>
+              <button class="ui labeled icon button save-report-button">
+                <i class="download icon"></i>
+                <span data-lang>Save</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="pad-bt step-pagination">
+          <div class="active bullet"></div>
+          <div class="bullet"></div>
+          <div class="bullet"></div>
+        </div>
+      </div>
+      <div class="section" data-section="dictionaries">
+        <h2 class="ui header full pad-lr pad-tp section-title">
+          <i class="book icon"></i>
+          <div class="content" data-lang>
+            Dictionaries
+          </div>
+        </h2>
+        <div class="ui form section-content">
+          <div class="field">
+            <label data-lang>Choose dictionary</label>
+            <div class="ui fluid search selection dropdown dictionaries-combobox">
+              <input type="hidden" name="dictionary" />
+              <i class="dropdown icon"></i>
+              <div class="default text"></div>
+              <div class="menu"></div>
+            </div>
+          </div>
+          <div class="field title-input-field">
+            <label data-lang>Title</label>
+            <input class="title-input" type="text" name="title" placeholder="Write down title for dictionary" data-lang />
+          </div>
+          <div class="field">
+            <label data-lang>Words</label>
+            <div class="fields">
+              <div class="eight wide field">
+                <input class="word-input" type="text" name="title" placeholder="Add new word for dictionary" data-lang />
+              </div>
+              <div class="eight wide field">
+                <div class="ui labeled icon left floated button add-word-button">
+                  <i class="plus icon"></i>
+                  <span data-lang>Add</span>
+                </div>
+                <button class="ui icon right floated button remove-word-button" data-tooltip="Remove Selecteds" data-position="top center" data-lang>
+                  <i class="trash icon"></i>
+                </button>
+                <button class="ui icon right floated button unselect-all-button" data-tooltip="Unselect All" data-position="top center" data-lang>
+                  <i class="dot circle outline icon"></i>
+                </button>
+                <button class="ui icon right floated button select-all-button" data-tooltip="Select All" data-position="top center" data-lang>
+                  <i class="dot circle icon"></i>
+                </button>
+              </div>
+            </div>
+            <div class="ui segment word-list-container">
+              <div class="ui relaxed list word-list hidden"></div>
+              <div class="no-word">
+                <p data-lang>There is no word.</p>
+              </div>
+            </div>
+          </div>
+          <button class="ui right floated button save-dictionary-button" data-lang>Save</button>
+          <button class="ui right floated button delete-dictionary-button" data-lang>Remove</button>
+        </div>
+      </div>
+      <div class="section" data-section="languages">
+        <h2 class="ui header full pad-lr pad-tp section-title">
+          <i class="globe icon"></i>
+          <div class="content" data-lang>
+            Languages
+          </div>
+        </h2>
+        <div class="ui five cards section-content languages-box">
+          <div class="ui link card" data-langCode="tr">
+            <div class="image">
+              <img src="src/img/tr.png" />
+            </div>
+            <div class="center aligned extra" data-lang>
+              Turkish
+            </div>
+          </div>
+          <div class="ui link card" data-langCode="en">
+            <div class="image">
+              <img src="src/img/en.png" />
+            </div>
+            <div class="center aligned extra" data-lang>
+              English
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" data-section="faq">
+        <h2 class="ui header full pad-lr pad-tp section-title">
+          <i class="question icon"></i>
+          <div class="content" data-lang>
+            FAQ
+          </div>
+        </h2>
+        <div class="ui form section-content faq">
+          <h4 data-lang>What is this?</h4>
+          <p data-lang>As a subtitle translator, we do alot of work on our translations. But always there is a posibility for mistakes. That's the main goal of this software. Looking up for these common mistakes, let you relieve from your burdens.</p>
+          <h4 data-lang>Okay it's cool. But which types of subtitle I can get reports for?</h4>
+          <p data-lang>I'm glad you asked. There are only two: SubRip (aka .srt) and SubStation Alpha (aka .ass or .ssa).</p>
+          <h4 data-lang>You did write this software from scratch?</h4>
+          <p data-lang>Yep, I did indeed.</p>
+          <h4 data-lang>Can I contribute in any way?</h4>
+          <p data-lang>If you wanna do something we can say contribution, just go for it, till end, seriously.Also don't forget you should do it via GitHub ...</p>
+          <h4 data-lang>I found bugs. What should I do?</h4>
+          <p data-lang>I'll be very pleased if you post bugs on GitHub.</p>
+          <h4 data-lang>What these abbreviations stand for?</h4>
+          <p><span data-lang>Characters Per Second</span> (CPS): <span data-lang>Number of characters needed to read within one second.</span></p>
+          <p><span data-lang>Characters Per Line</span> (CPS): <span data-lang>Number of characters for longest line.</span></p>
+          <p><span data-lang>Spelling Errors</span> (SER): <span data-lang>Words which have spelling mistakes.</span></p>
+          <p><span data-lang>Spaced N Tags</span> (SNT) (<span data-lang>SSA Only</span>): <span data-lang>Any N tag with starting or finishing with space.</span></p>
+          <p><span data-lang>Invalid Tags</span> (ITA): <span data-lang>Invalid tags or corrected version of row's invalid HTML.</span></p>
+          <p><span data-lang>Negative Durations</span> (NDU): <span data-lang>Negative durations based on end time minus begin time.</span></p>
+          <p><span data-lang>Unsupported Newlines</span> (UNE) (<span data-lang>SRT Only</span>): <span data-lang>Not supported \n and \N newline characters.</span></p>
+          <p><span data-lang>Overlapping Lines</span> (OLI) (<span data-lang>SRT Only</span>): <span data-lang>Lines which have overlapped duration range.</span></p>
+          <p><span data-lang>Unnecessary Spaces</span> (USP): <span data-lang>Two or more trailing spaces.</span></p>
+        </div>
+      </div>
+      <div class="section" data-section="license">
+        <h2 class="ui header full pad-lr pad-tp section-title">
+          <i class="copyright outline icon"></i>
+          <div class="content" data-lang>
+            License
+          </div>
+        </h2>
+        <div class="ui form section-content license">
+          <p><b><span data-lang>In case of any problem, English text will be counted as an actual license.</span></b></p>
+          <h3 data-lang>MIT License</h3>
+          <p><span data-lang>Copyright</span> (c) 2019, Bahrican AKKOYUN</p>
+          <p data-lang>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+          <p data-lang>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+          <p data-lang>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+        </div>
+      </div>
+      <div class="section" data-section="author">
+        <h2 class="ui header full pad-lr pad-tp section-title">
+          <i class="user secret icon"></i>
+          <div class="content" data-lang>
+            Author
+          </div>
+        </h2>
+        <div class="ui form section-content">
+          <p><span data-lang>This software was brought to you by</span> <a href="https://github.com/b8kkyn" data-tooltip="https://github.com/b8kkyn" data-position="top center">@b8kkyn</a><span data-lang>.</span></p>
+          <p data-lang>If you wanna reach out to me, now you know how to do it.</p>
+        </div>
+      </div>
+      <div class="ui compact black message message-toast">
+        <p></p>
+      </div>
+    </div>
+  </body>
+</html>

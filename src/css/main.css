@@ -1,0 +1,432 @@
+.hidden {
+  display: none !important;
+}
+
+.spicednectarine {
+  color: #ff9a2b !important;
+}
+
+.wintergreen {
+  color: #00ff5f !important;
+}
+
+.neonblue {
+  color: #18dcff !important;
+}
+
+html {
+  user-select: none;
+}
+
+body {
+  display: flex;
+}
+
+body .left-sidemenu {
+  min-width: 106.78px;
+  position: relative !important;
+}
+
+body .right-sections {
+  position: relative;
+
+  display: flex;
+  flex-grow: 1;
+
+  border-top: 0.2px solid;
+  overflow: hidden;
+}
+
+.right-sections .section {
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.right-sections .section.space-between {
+  justify-content: space-between;
+}
+
+.right-sections .section.active {
+  display: flex;
+}
+
+.right-sections .full {
+  width: 100%;
+}
+
+.right-sections .pad-lr {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.right-sections .pad-tp {
+  padding-top: 15px;
+}
+
+.right-sections .pad-bt {
+  padding-bottom: 15px;
+}
+
+.section .section-title {
+  margin: 0 !important;
+}
+
+.section .section-content {
+  width: 80%;
+}
+
+.section .section-content:not(.license) {
+  margin-top: 40px;
+}
+
+.section .section-content.license {
+  margin-top: 20px;
+}
+
+.section .section-content.faq {
+  padding: 0px 10px;
+  height: 80%;
+  overflow-y: auto;
+  box-sizing: content-box;
+}
+
+.section .steps {
+  height: 400px;
+  position: relative;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.section .step {
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: #fff;
+}
+
+.section .step:not(.visible) {
+  display: none;
+}
+
+.srt-second-tab-description,
+.ssa-second-tab-description {
+  text-align: center;
+}
+
+.drag-drop-area {
+  margin-top: 50px !important;
+  padding: 10px !important;
+
+  width: 80%;
+  min-height: unset !important;
+  height: 200px;
+
+  flex-direction: row !important;
+  transition: all 0.2s;
+}
+
+.drag-drop-area.is-dragover {
+  padding: 20px !important;
+  background-color: #d3d4d4 !important;
+}
+
+.drag-drop-area-border,
+.drag-drop-area-border .header,
+.drag-drop-area-border .header > .icon {
+  pointer-events: none;
+}
+
+.drag-drop-area-border {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.drag-drop-area-border::before {
+  content: "";
+  position: absolute;
+  border: 10px dashed;
+  top: -9px;
+  bottom: -9px;
+  left: -9px;
+  right: -9px;
+  background-color: transparent !important;
+}
+
+.drag-drop-area-border .header {
+  margin: 0;
+}
+
+.drag-drop-area-border .header > .icon {
+  margin-bottom: 20px !important;
+}
+
+.loading-area {
+  margin-top: 40px;
+}
+
+.choose-box {
+  margin-top: 40px !important;
+  margin-bottom: 0 !important;
+  width: 80%;
+}
+
+.choose-box.disabled-box {
+  pointer-events: none;
+}
+
+.choose-box.disabled-box label,
+.choose-box.disabled-box .divider,
+.choose-box.disabled-box p {
+  color: #949494;
+}
+
+.choose-box.disabled-box label::before {
+  border-color: #dfdfdf !important;
+}
+
+.choose-box.disabled-box label::after {
+  color: #a5a5a5 !important;
+}
+
+.choose-box .grid {
+  height: 150px;
+}
+
+.choose-box .grid .column .list {
+  padding: 1px 15px 1px 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.button-box {
+  margin-top: 30px !important;
+  padding: 0 !important;
+  width: 80%;
+}
+
+.progress-status {
+  width: 60%;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-status .status-box {
+  width: 100%;
+
+  left: 0px;
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.progress-status .status-box p {
+  margin-bottom: 15px;
+  height: 20px;
+}
+
+.progress-bar {
+  margin-top: 40px !important;
+  width: 80%;
+}
+
+.report-tabs {
+  width: 90%;
+}
+
+.report-tabs > .tab {
+  margin: 1rem 0 !important;
+}
+
+.report-tabs > .tab.active {
+  height: 280px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.report-tabs > .tab.active:nth-child(2) {
+  padding-left: 0px;
+  padding-right: 0px;
+  flex-direction: row;
+}
+
+.report-tabs .grade-box {
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.grade-box h1:first-child {
+  margin-bottom: 0 !important;
+}
+
+.grade-box h1:last-child {
+  font-size: 80px !important;
+}
+
+.report-tabs .vertical.divider {
+  left: 240px;
+}
+
+.report-tabs .vertical.divider::before,
+.report-tabs .vertical.divider::after {
+  height: 100%;
+}
+
+.report-tabs .summary {
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+
+  text-align: center;
+}
+
+.report-tabs > .tab > .tab {
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: auto;
+}
+
+.report-tabs > .tab.active > .tab.active {
+  height: 100%;
+  display: flex;
+}
+
+.report-tabs > .tab > .tab table tr td {
+  white-space: pre;
+}
+
+.report-tabs > .tab > .tab .dimmer {
+  pointer-events: none;
+}
+
+.report-tabs > .tab > .tab .dimmer > .content > * {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.report-tabs > .tab > .tab .dimmer > .content .header {
+  margin: 0;
+}
+
+.report-tabs > .tab > .tab .dimmer > .content .header .icon {
+  margin-bottom: 15px;
+}
+
+.button-container {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-container .again-report-button {
+  margin-right: 20px;
+}
+
+.button-container .save-report-button {
+  margin-right: 0 !important;
+}
+
+.languages-box .card img {
+  height: 64px;
+  min-height: 64px;
+  max-height: 64px;
+}
+
+.languages-box .card.selected,
+.languages-box .card.selected:hover {
+  box-shadow: 0px 0px 1px 2px rgba(0, 0, 255, 0.75);
+}
+
+.step-pagination {
+  width: 20%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 1;
+}
+
+.step-pagination .bullet {
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+}
+
+.step-pagination .bullet:not(.active) {
+  background-color: #c6c6c7;
+}
+
+.step-pagination .bullet.active {
+  background-color: #787879;
+}
+
+.word-input {
+  height: 35.6px;
+}
+
+.word-list-container {
+  height: 165px;
+}
+
+.word-list-container .word-list {
+  padding: 1px 15px 1px 0 !important;
+  height: 100%;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.save-dictionary-button,
+.delete-dictionary-button {
+  margin-top: 20px !important;
+}
+
+.message-toast {
+  margin-top: 0 !important;
+  bottom: 15px;
+  left: 50%;
+  position: absolute !important;
+
+  opacity: 0;
+  z-index: 0;
+
+  transform: translateX(-50%) scale(0.8);
+  transition: transform 0.2s linear 0.2s, opacity 0.2s linear 0.2s !important;
+
+  text-align: center;
+}
+
+.message-toast.is-open {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}

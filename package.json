@@ -1,0 +1,46 @@
+{
+  "name": "subcritic",
+  "productName": "SubCritic",
+  "version": "1.0.0",
+  "description": "Tool for evaluating subtitles and getting report for them.",
+  "main": "./app.js",
+  "dependencies": {
+    "ass-compiler": "0.0.10",
+    "charset-detector": "0.0.2",
+    "fs-extra": "^7.0.1",
+    "nspell": "^2.1.1",
+    "subtitle": "^2.0.2"
+  },
+  "devDependencies": {
+    "electron": "^4.0.6",
+    "electron-packager": "^13.1.0",
+    "standard": "^12.0.1"
+  },
+  "scripts": {
+    "start": "electron .",
+    "serv": "browser-sync start --localOnly --files \"**/*\"",
+    "package-win32": "electron-packager . --out=dist --platform=win32 --arch=ia32 --icon=src/icons/icon.ico --app-copyright=\"Copyright (c) 2019, Bahrican AKKOYUN\" --ignore=\"/dist/(win|mac|linux)\" --overwrite",
+    "package-win64": "electron-packager . --out=dist --platform=win32 --arch=x64 --icon=src/icons/icon.ico --app-copyright=\"Copyright (c) 2019, Bahrican AKKOYUN\" --ignore=\"/dist/(win|mac|linux)\" --overwrite",
+    "package-mac": "electron-packager . --out=dist --platform=darwin --arch=x64 --icon=src/icons/icon.icns --app-copyright=\"Copyright (c) 2019, Bahrican AKKOYUN\" --ignore=\"/dist/(win|mac|linux)\" --overwrite",
+    "package-linux": "electron-packager . --out=dist --platform=linux --arch=x64 --icon=src/icons/icon.png --app-copyright=\"Copyright (c) 2019, Bahrican AKKOYUN\" --ignore=\"/dist/(win|mac|linux)\" --overwrite",
+    "release": "npm run package-win32 && npm run package-win64 && npm run package-mac && npm run package-linux"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b8kkyn/subcritic.git"
+  },
+  "keywords": [
+    "evaluation",
+    "assessment",
+    "subtitles",
+    "report",
+    "subrip",
+    "substation alpha"
+  ],
+  "author": "Bahrican AKKOYUN <bahricanakkoyun@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/b8kkyn/subcritic/issues"
+  },
+  "homepage": "https://github.com/b8kkyn/subcritic#readme"
+}
